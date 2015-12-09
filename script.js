@@ -157,7 +157,7 @@ var model = {
       var newCell = new model.cellConstructor(i);
       output.push(newCell);
     }
-    // returns cells from cellConstructor with id, (x, y) coords, snake and food booleans to determine what cell contains
+    // returns cells from cellConstructor with id, (x, y) coords, snake and food booleans to determine what the cell contains
     return output;
   },
 
@@ -177,14 +177,14 @@ var model = {
   },
 
   outOfBounds: function(coordinate) {
-    // checks of newX or newY coordinate is off the grid
+    // checks if newX or newY coordinates are off the grid
     if (coordinate < 0 || coordinate >= model.gridSize) {
       return true
     };
   },
 
   getSnakeIDs: function() {
-    // translates cells to their ID and returns that array
+    // translates snake cells to their IDs and returns that array
     return $.map(model.snake.cells, function(cell) {
       return cell.id
     });
