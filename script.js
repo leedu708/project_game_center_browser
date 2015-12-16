@@ -38,6 +38,7 @@ var model = {
 
       if (!model.gameover) {
         model.snake.cells.unshift(newCell);
+        // sets current cell to be part of the snake
         model.snake.cells[0].snake = true;
         
         if (newCell.food) {
@@ -45,6 +46,7 @@ var model = {
         }
 
         else {
+          // pops off the last cell in the snake if no food is eaten
           model.snake.cells.pop().snake = false;
         }
         return newCell;
@@ -226,7 +228,7 @@ var view = {
   setDimensions: function(size) {
     // keeps the dimensions of the board and cells proportional to the gridSize when the model and view are initiated
     // integer value is the pixel width of the board
-    var cellSizePx = Math.floor(480 / size) + 'px';
+    var cellSizePx = Math.floor(720 / size) + 'px';
     $('.board').css('line-height', cellSizePx);
     $('.cell').css('height', cellSizePx);
     $('.cell').css('width', cellSizePx);
@@ -327,5 +329,5 @@ var controller = {
 }
 
 $(document).ready( function() {
-  controller.init(10, 150);
+  controller.init(30, 100);
 })
